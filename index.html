@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#071722">
+  <title>Heading Trainer</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="shell">
+  <header><div><p class="eyebrow">ATC STUDY TOOL</p><h1>Heading <span>Trainer</span></h1></div><button id="settingsBtn" class="icon">⚙</button></header>
+  <nav class="tabs">
+    <button data-mode="math" class="active">Sčítání a odčítání</button>
+    <button data-mode="circuit">Letištní okruh</button>
+  </nav>
+  <section class="stats"><div><strong id="correct">0</strong><span>správně</span></div><div><strong id="streak">0</strong><span>série</span></div><div><strong id="accuracy">–</strong><span>úspěšnost</span></div></section>
+
+  <section id="settings" class="settings panel">
+    <div id="mathSettings">
+      <label>Rozsah změny<select id="range"><option value="90">do 90°</option><option value="180" selected>do 180°</option><option value="359">do 359°</option></select></label>
+    </div>
+    <div id="circuitSettings" class="hidden">
+      <label>Směr okruhu<select id="direction"><option value="mixed">Náhodně pravý / levý</option><option value="right">Pravý okruh</option><option value="left">Levý okruh</option></select></label>
+    </div>
+  </section>
+
+  <section class="card panel" aria-live="polite">
+    <div class="cardhead"><span id="questionType"></span><span id="directionBadge" class="badge hidden"></span></div>
+    <div id="mathQuestion" class="question"></div>
+    <div id="circuitQuestion" class="hidden">
+      <p class="runway-label">DRÁHA V UŽÍVÁNÍ</p><div id="runway" class="runway">27</div>
+    </div>
+    <p id="instruction" class="instruction"></p>
+    <form id="form">
+      <div id="inputs"></div>
+      <div class="actions"><button type="button" id="dontKnow" class="secondary">Nevím</button><button class="primary">Zkontrolovat</button></div>
+    </form>
+    <section id="feedback" class="feedback hidden"><h2 id="feedbackTitle"></h2><div id="solution"></div><button id="next" class="primary full">Další <span>Enter ↵</span></button></section>
+  </section>
+  <footer><span>Headingy zapisuj jako 001–360</span><button id="reset">Vynulovat pokrok</button></footer>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
